@@ -1,0 +1,14 @@
+{
+    "name": "thiagoprz/braspag-laravel",
+    "description": "Biblioteca desenvolvida para dar suporte no Laravel as formas de pagamento Braspag.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thiago Przyczynski",
+            "email": "przyczynski@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

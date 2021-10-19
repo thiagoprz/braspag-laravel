@@ -1,0 +1,4 @@
+/vendor/
+/.idea/
+/assets/
+.phpunit.result.cache
