@@ -62,12 +62,12 @@ class CreditCard implements \JsonSerializable
     protected $SoftDescriptor;
 
     /**
-     * @var \Thiagoprz\Braspag\PaymentMethod\CreditCard\Card
+     * @var \Thiagoprz\Braspag\PaymentMethod\CC\Card
      */
     protected $CreditCard;
 
     /**
-     * @return mixed
+     * @return \Thiagoprz\Braspag\PaymentMethod\CC\TokenizeResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function tokenize()

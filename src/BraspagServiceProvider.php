@@ -28,7 +28,7 @@ class BraspagServiceProvider extends ServiceProvider
     {
         // Publishes configuration
         $this->publishes([
-            __DIR__.'/../config/braspag-cartao-protegido.php' => config_path('braspag-cartao-protegido.php'),
+            __DIR__.'/../config/braspag.php' => config_path('braspag.php'),
         ]);
     }
 

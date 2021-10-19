@@ -1,6 +1,6 @@
 <?php
 
-namespace Thiagoprz\Braspag\PaymentMethod\CreditCard;
+namespace Thiagoprz\Braspag\PaymentMethod\CC;
 
 class Card implements \JsonSerializable
 {
