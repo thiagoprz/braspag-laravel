@@ -163,4 +163,20 @@ class Customer implements \JsonSerializable
     {
         return array_filter(get_object_vars($this));
     }
+
+    /**
+     * @return string
+     */
+    public function getIpAddress(): string
+    {
+        return $this->IpAddress;
+    }
+
+    /**
+     * @param string $IpAddress
+     */
+    public function setIpAddress(string $IpAddress): void
+    {
+        $this->IpAddress = $IpAddress;
+    }
 }

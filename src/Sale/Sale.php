@@ -57,9 +57,9 @@ class Sale implements \JsonSerializable
     }
 
     /**
-     * @param \Thiagoprz\Braspag\PaymentMethod\CreditCard $Payment
+     * @param \Thiagoprz\Braspag\PaymentMethod\CreditCard|mixed $Payment
      */
-    public function setPayment(\Thiagoprz\Braspag\PaymentMethod\CreditCard $Payment): void
+    public function setPayment($Payment): void
     {
         $this->Payment = $Payment;
         $this->Payment->setSoftDescriptor(config('braspag.softDescriptor'));

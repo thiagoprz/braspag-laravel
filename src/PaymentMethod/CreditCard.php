@@ -2,7 +2,10 @@
 namespace Thiagoprz\Braspag\PaymentMethod;
 
 
+use Illuminate\Support\Facades\Log;
 use Thiagoprz\Braspag\Http\Client;
+use Thiagoprz\Braspag\PaymentMethod\CC\Card;
+use Thiagoprz\Braspag\Sale\Sale;
 
 class CreditCard implements \JsonSerializable
 {
@@ -70,12 +73,14 @@ class CreditCard implements \JsonSerializable
      * @return \Thiagoprz\Braspag\PaymentMethod\CC\TokenizeResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function tokenize()
+    public function tokenize(Sale $sale)
     {
         $client = Client::getInstance();
         $this->getCreditCard()->setSaveCard(true);
         $this->setRecurrent(false);
-        return $client->post(config('v2/sales'), $this);
+        $sale->setPayment($this);
+        Log::info(json_encode($sale));
+        return $client->post('v2/sales', $sale);
     }
 
     /**
@@ -167,17 +172,17 @@ class CreditCard implements \JsonSerializable
     }
 
     /**
-     * @return CreditCard\Card
+     * @return Card
      */
-    public function getCreditCard(): CreditCard\Card
+    public function getCreditCard(): Card
     {
         return $this->CreditCard;
     }
 
     /**
-     * @param CreditCard\Card $CreditCard
+     * @param Card $CreditCard
      */
-    public function setCreditCard(CreditCard\Card $CreditCard): void
+    public function setCreditCard(Card $CreditCard): void
     {
         $this->CreditCard = $CreditCard;
     }

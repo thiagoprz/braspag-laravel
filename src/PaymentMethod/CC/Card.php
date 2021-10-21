@@ -25,7 +25,7 @@ class Card implements \JsonSerializable
      */
     public function setCardNumber($CardNumber): void
     {
-        $this->CardNumber = $CardNumber;
+        $this->CardNumber = str_replace([' ', '-', '.', '/'], '', $CardNumber);
     }
 
     /**
