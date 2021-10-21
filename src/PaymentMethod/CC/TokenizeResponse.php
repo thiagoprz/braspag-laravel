@@ -5,17 +5,15 @@ namespace Thiagoprz\Braspag\PaymentMethod\CC;
 class TokenizeResponse
 {
     public $Payment;
+}
+
+class Payment {
     public $ServiceTaxAmount;
     public $Installments;
     public $Interest;
     public $Capture;
     public $Authenticate;
     public $Recurrent;
-
-    /**
-     * @var CreditCardResponse
-     */
-    public $CreditCard;
 
     public $ProofOfSale;
     public $AcquirerTransactionId;
@@ -32,4 +30,8 @@ class TokenizeResponse
     public $Status;
     public $ProviderReturnCode;
     public $ProviderReturnMessage;
+    /**
+     * @var CreditCardResponse
+     */
+    public $CreditCard;
 }
