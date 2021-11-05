@@ -64,6 +64,21 @@ class Client
 
     /**
      * @param string $url
+     * @param mixed $data
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function put($url, $data)
+    {
+        $data = $this->httpClient->put($url, [
+            'body' => json_encode($data),
+            'headers' => $this->headers(),
+        ]);
+        return json_decode((string)$data->getBody());
+    }
+
+    /**
+     * @param string $url
      * @param array $data
      * @return mixed
      * @throws GuzzleException

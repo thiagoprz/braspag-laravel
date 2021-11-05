@@ -25,6 +25,28 @@ class Sale implements \JsonSerializable
     protected $Payment;
 
     /**
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function process()
+    {
+        $client = Client::getInstance();
+        return $client->post('v2/sales', $this);
+    }
+
+    /**
+     * @param $PaymentId
+     * @param $Amount
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function cancel($PaymentId, $Amount)
+    {
+        $client = Client::getInstance();
+        return $client->put("v2/sales/$PaymentId/void?amount=$Amount", $this);
+    }
+
+    /**
      * @return array|mixed
      */
     public function jsonSerialize()

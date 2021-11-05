@@ -52,7 +52,7 @@ class CreditCard implements \JsonSerializable
     /**
      * @var bool
      */
-    protected $Authenticate = false;
+    protected $Authenticate = true;
 
     /**
      * @var bool
