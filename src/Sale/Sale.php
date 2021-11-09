@@ -35,6 +35,22 @@ class Sale implements \JsonSerializable
     }
 
     /**
+     * Captura do pagamento
+     *
+     * @param $PaymentId
+     * @param $Amount
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public static function capture($PaymentId, $Amount)
+    {
+        $client = Client::getInstance();
+        return $client->put("v2/sales/$PaymentId/capture?amount=$Amount", []);
+    }
+
+    /**
+     * Cancelamento do pagamento
+     *
      * @param $PaymentId
      * @param $Amount
      * @return mixed
